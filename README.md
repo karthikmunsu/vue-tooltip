@@ -2,6 +2,31 @@
 
 > Tooltip plugin for Vue.js
 
+### TO Install
+ 
+ ```bash
+npm install vue-tooltip --save
+
+```
+in your main.js file import vue-tooltip as below
+
+```bash
+import vueTooltip from 'vue-tooltip';
+```
+then add the belowline
+
+```bash
+Vue.use(vueTooltip);
+```
+
+### Usage of plugin
+
+add v-tooltip="message" in your html
+
+```bash
+<button v-tooltip="'this is a text'">Hover me</button>
+```
+
 ### Development Setup
 
 ``` bash
