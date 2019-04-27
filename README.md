@@ -1,17 +1,17 @@
-# vue-tooltip
+# vue-tooltip-v
 
 > Tooltip plugin for Vue.js
 
 ### TO Install
  
  ```bash
-npm install vue-tooltip --save
+npm install vue-tooltip-v --save
 
 ```
-in your main.js file import vue-tooltip as below
+in your main.js file import vue-tooltip-v as below
 
 ```bash
-import vueTooltip from 'vue-tooltip';
+import vueTooltip from 'vue-tooltip-v';
 ```
 then add the belowline
 
