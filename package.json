@@ -1,5 +1,5 @@
 {
-  "name": "vue-tooltip",
+  "name": "vue-tool-tip",
   "description": "Tooltip plugin for Vue.js",
   "version": "0.0.1",
   "private": false,
@@ -10,12 +10,14 @@
   ],
   "repository": {
     "type": "git",
-    "url": ""
+    "url": "https://github.com/karthikmunsu/vue-tooltip"
   },
   "unpkg": "dist/vue-tooltip.js",
   "keywords": [
+     "vue-tool-tip",
+     "v-tool-tip",
      "vue-tooltip",
-     " v-tooltip"
+     "v-tooltip"
   ],
   "author": "karthik",
   "license": "MIT",
@@ -24,7 +26,8 @@
     "dev": "node build/dev-server.js",
     "build": "npm run build:library && npm run build:demo",
     "build:demo": "node build/build.js",
-    "build:library": "node build/build.rollup.js"
+    "build:library": "node build/build.rollup.js",
+    "publish": "npm publish --access public"
   },
   "dependencies": {},
   "devDependencies": {

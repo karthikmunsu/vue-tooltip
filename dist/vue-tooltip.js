@@ -1,5 +1,5 @@
 /**
- * vue-tooltip v0.0.0
+ * vue-tooltip v0.0.1
  * (c) 2019 karthik
  * @license MIT
  */
