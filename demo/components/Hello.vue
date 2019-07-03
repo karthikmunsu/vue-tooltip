@@ -2,7 +2,7 @@
   <div class="hello">
     <h2>welcome</h2>
     <h1>{{ msg }}</h1>
-    <button v-tooltip="'this is a text'">Hover me</button>
+    <button v-tooltip:[`bottom-right`]="'this is a text'">Hover me</button>
   </div>
 </template>
 

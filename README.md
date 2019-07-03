@@ -26,6 +26,12 @@ add v-tooltip="message" in your html
 ```bash
 <button v-tooltip="'this is a text'">Hover me</button>
 ```
+### To Set Direction for the tooltip
+
+```bash
+<button v-tooltip:[`bottom-right`]="'this is a text'">Hover me</button>
+```
+Available options ['bottom-right', 'bottom-left', 'top-left', 'top-right']
 
 ### Development Setup
 

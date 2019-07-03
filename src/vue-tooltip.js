@@ -15,7 +15,9 @@ vueTooltip.install = function (Vue, options) {
      let parentEle = document.createElement('div');
      parentEle.id = "tooltip";
      parentEle.innerText = binding.value;
-
+      let direction = binding.arg;
+      let pointer_direction = direction != undefined ? direction.split('-')[1].trim().toLowerCase() : 'left';
+      let position = direction != undefined ? direction.split('-')[0].trim().toLowerCase() : 'top';
      //styles
      let darktheme = document.querySelector("head");
       darktheme.innerHTML += `<style>
@@ -37,16 +39,24 @@ vueTooltip.install = function (Vue, options) {
                                   border-radius: 1px;
                                   background-color: inherit;
                                   transform: rotate(45deg);
-                                  left: 10px;
-                                  bottom: -4px;
+                                  ${pointer_direction}: 10px;
+                                  ${position == 'top' ? 'bottom' : 'top'}: -4px;
                               }
                               </style>`;
      
       //mouse enter event
       el.addEventListener('mouseenter', (event) => {
           let rect = el.getClientRects();
-          parentEle.style.left = rect['0'].left + 'px';
-          parentEle.style.top = rect['0'].top - 40 + 'px';
+          //checking for direction if not: default will be left
+          if(pointer_direction == 'right')
+            parentEle.style.right = rect['0'].left + 'px';  
+          else
+            parentEle.style.left = rect['0'].left + 'px';
+          //for tooltip postion top / bottom
+          if(position == 'top')
+            parentEle.style.top = rect['0'].top - 40 + 'px';
+          else
+            parentEle.style.bottom = rect['0'].top - 40 + 'px';
 
           document.getElementById('app').appendChild(parentEle);
       });
