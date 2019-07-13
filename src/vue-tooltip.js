@@ -29,7 +29,6 @@ vueTooltip.install = function (Vue, options) {
                                   color: #ffff;
                                   border-radius: 6px;
                                   line-height: 35px;
-                                  animation: 0.4s fade ease-in-out;
                                 }
                                 #tooltip:before {
                                   content: '';
@@ -41,6 +40,28 @@ vueTooltip.install = function (Vue, options) {
                                   transform: rotate(45deg);
                                   ${pointer_direction}: 10px;
                                   ${position == 'top' ? 'bottom' : 'top'}: -4px;
+                              }
+                              .v-fadeout {
+                                animation: fadeOut 2s;
+                              }
+                              .v-fadein {
+                                animation: fadeIn 2s;
+                              }
+                              @keyframes fadeIn{
+                                0%{
+                                  opacity: 0
+                                }50%{
+                                  opacity: 1
+                                }
+                              }
+                              @keyframes fadeOut{
+                                0%{
+                                  opacity: 1
+                                }50%{
+                                  opacity: 0
+                                }100%{
+                                  opacity: 0
+                                }
                               }
                               </style>`;
      
@@ -57,13 +78,17 @@ vueTooltip.install = function (Vue, options) {
             parentEle.style.top = rect['0'].top - 40 + 'px';
           else
             parentEle.style.bottom = rect['0'].top - 40 + 'px';
-
+          parentEle.style.animation = "fadeIn 2s";
           document.getElementById('app').appendChild(parentEle);
       });
 
       //mouse leave event
       el.addEventListener('mouseleave', (event) => {
-        document.getElementById('tooltip').remove();
+        parentEle.style.animation = "";
+        parentEle.classList.add('v-fadeout');
+        setTimeout(() => {
+          parentEle.remove();
+        }, 500);
       });
     },
 
